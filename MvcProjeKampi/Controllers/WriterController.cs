@@ -59,6 +59,7 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult EditWriter(Writer p)
         {
+
             ValidationResult results = writervalidator.Validate(p);
             if (results.IsValid)
             {

@@ -11,9 +11,10 @@ namespace BusinessLayer.Abstract
     {
         List<Writer> GetList();
         void WriterAdd(Writer writer);
-        void WriterDelete(Writer writer);
-        void WriterUpdate(Writer Writer);
         Writer GetByID(int id);
+        void WriterDelete(Writer writer);       
+        void WriterUpdate(Writer writer);
+        
 
     }
 }

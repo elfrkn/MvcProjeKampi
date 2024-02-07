@@ -12,7 +12,6 @@ namespace BusinessLayer.Concrete
     public class WriterManager : IWriterService
     {
         IWriterDal _writerDal;
-        private Writer writer;
 
         public WriterManager(IWriterDal writerDal)
         {
@@ -39,7 +38,7 @@ namespace BusinessLayer.Concrete
             _writerDal.Delete(writer);
         }
 
-        public void WriterUpdate(Writer Writer)
+        public void WriterUpdate(Writer writer)
         {
             _writerDal.Update(writer);
         }

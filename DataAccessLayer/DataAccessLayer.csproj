@@ -66,9 +66,17 @@
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
-    <Compile Include="Migrations\202402051800116_mig_writer_add.cs" />
-    <Compile Include="Migrations\202402051800116_mig_writer_add.designer.cs">
-      <DependentUpon>202402051800116_mig_writer_add.cs</DependentUpon>
+    <Compile Include="Migrations\202402071517540_mig_write_addstatus.cs" />
+    <Compile Include="Migrations\202402071517540_mig_write_addstatus.designer.cs">
+      <DependentUpon>202402071517540_mig_write_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202402071616424_mig_contentstatusadd.cs" />
+    <Compile Include="Migrations\202402071616424_mig_contentstatusadd.designer.cs">
+      <DependentUpon>202402071616424_mig_contentstatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202402071620015_mig_headingstatusadd.cs" />
+    <Compile Include="Migrations\202402071620015_mig_headingstatusadd.designer.cs">
+      <DependentUpon>202402071620015_mig_headingstatusadd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,8 +92,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202402051800116_mig_writer_add.resx">
-      <DependentUpon>202402051800116_mig_writer_add.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202402071517540_mig_write_addstatus.resx">
+      <DependentUpon>202402071517540_mig_write_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402071616424_mig_contentstatusadd.resx">
+      <DependentUpon>202402071616424_mig_contentstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402071620015_mig_headingstatusadd.resx">
+      <DependentUpon>202402071620015_mig_headingstatusadd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

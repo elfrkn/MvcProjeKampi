@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class mig_writer_add : DbMigration
+    public partial class mig_contentstatusadd : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Writers", "WriterTitle", c => c.String(maxLength: 50));
+            AddColumn("dbo.Contents", "ContentStatus", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Writers", "WriterTitle");
+            DropColumn("dbo.Contents", "ContentStatus");
         }
     }
 }
