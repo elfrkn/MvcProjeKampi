@@ -26,9 +26,11 @@ namespace MvcProjeKampi.Controllers
             var contactvalues = cm.GetByID(id);
             return View(contactvalues);
         }
-        public PartialViewResult SidebarCantactList()
+
+        public PartialViewResult MessageMenu()
         {
             return PartialView();
         }
+        
     }
 }

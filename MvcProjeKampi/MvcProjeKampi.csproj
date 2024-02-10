@@ -2302,6 +2302,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
     <Content Include="Views\Contact\SidebarCantactList.cshtml" />
+    <Content Include="Views\Contact\MessageMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
