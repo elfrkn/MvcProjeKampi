@@ -11,6 +11,8 @@ namespace BusinessLayer.Abstract
     {
         List<Message> GetListInbox  ();
         List<Message> GetListSendbox();
+
+        List<Message> GetListDraft();
         void MessageAdd(Message message);
         Message GetByID(int id);
         void MessageDelete(Message message);

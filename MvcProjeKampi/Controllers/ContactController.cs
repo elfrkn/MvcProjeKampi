@@ -30,6 +30,7 @@ namespace MvcProjeKampi.Controllers
 
         public PartialViewResult MessageMenu()
         {
+            ViewBag.v3 = mm.GetListDraft().Count;
             ViewBag.v1 = mm.GetListInbox().Count();
             ViewBag.v2 = cm.GetList().Count();
             return PartialView();

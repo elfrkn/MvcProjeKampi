@@ -2314,6 +2314,7 @@
     <Content Include="Views\Message\GetInBoxMessageDetails.cshtml" />
     <Content Include="Views\Message\GetSendBoxMessageDetails.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\Message\DraftList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

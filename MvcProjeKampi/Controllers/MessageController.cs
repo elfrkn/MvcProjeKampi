@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,12 @@ namespace MvcProjeKampi.Controllers
 
             var messagelist = mm.GetListSendbox();
             return View(messagelist);
+        }
+
+        public ActionResult DraftList()
+        {
+            var draftlist = mm.GetListDraft();
+            return View(draftlist);
         }
 
         public ActionResult GetInBoxMessageDetails(int id)
