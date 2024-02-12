@@ -1,6 +1,6 @@
-﻿@model EntityLayer.Concrete.Contact
+﻿@model EntityLayer.Concrete.Message
 @{
-    ViewBag.Title = "GetContactDetails";
+    ViewBag.Title = "GetSendBoxMessageDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -13,9 +13,9 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>İletişim Sayfası Mesajları</h1>
+                    <h1>Gönderilen Mesaj Detayları</h1>
                 </div>
-              
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -23,7 +23,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-           @Html.Action("MessageMenu","Contact")
+                @Html.Action("MessageMenu", "Contact")
                 <!-- /.col -->
                 <div class="col-md-9">
                     <div class="card card-primary card-outline">
@@ -36,25 +36,24 @@
                         </div>
                         <!-- /.card-header -->
 
-                       
-                            <div class="card-body p-0">
-                                <div class="mailbox-read-info">
-                                    <h5>Konu: @Html.DisplayFor(x=>x.Subject)</h5>
-                                    <br />
-                                    <h6>
-                                        Mail: @Html.DisplayFor(x=>x.UserMail)
-                                        <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
-                                    </h6>
-                                </div>
-                                <!-- /.mailbox-read-info -->
-                                
-                                <!-- /.mailbox-controls -->
-                                <div class="mailbox-read-message">
-                                   <p>@Html.DisplayFor(x=>x.Message)</p>
-                                </div>
-                                <!-- /.mailbox-read-message -->
+
+                        <div class="card-body p-0">
+                            <div class="mailbox-read-info">
+                                <h5>Konu: @Html.DisplayFor(x => x.Subject)</h5>
+                                <br />
+                                <h6>
+                                    Alıcı: @Html.DisplayFor(x => x.ReceiverMail)
+                                    <span class="mailbox-read-time float-right">@DateTime.Parse(@Html.DisplayFor(x => x.MessageDate).ToString()).ToShortDateString()</span>
+                                </h6>
                             </div>
-                        
+                            <!-- /.mailbox-read-info -->
+                            <!-- /.mailbox-controls -->
+                            <div class="mailbox-read-message">
+                                <p>@Html.DisplayFor(x => x.MessageContent)</p>
+                            </div>
+                            <!-- /.mailbox-read-message -->
+                        </div>
+
                         <!-- /.card-footer -->
                     </div>
                     <!-- /.card -->
@@ -62,7 +61,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-            </div>
+        </div>
     </section>
 </body>
 </html>
