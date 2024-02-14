@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace MvcProjeKampi.Controllers
@@ -73,6 +75,20 @@ namespace MvcProjeKampi.Controllers
             return RedirectToAction("MyHeadings");
 
         }
-       
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var headingvalues = hm.GetByID(id);
+            headingvalues.HeadingStatus = false;
+            hm.HeadingDelete(headingvalues);
+            return RedirectToAction("MyHeadings");
+        }
+
     }
 }
+
+ //< customErrors mode = "On" >
+
+ //         < error statusCode = "404" redirect = "/ErrorPage/Page404/" />
+
+ //     </ customErrors >
