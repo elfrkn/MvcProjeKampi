@@ -1,13 +1,15 @@
-﻿@using EntityLayer.Concrete
+﻿
+@using EntityLayer.Concrete
 @model List<Heading>
 @{
     ViewBag.Title = "MyHeadings";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
+
 }
 
 @{ string color = "";}
-
-
+@{ string status = "";}
+@{ string headingColor = "";}
 
 <!DOCTYPE html>
 <html>
@@ -50,7 +52,9 @@
                             <th style="width: 15%">
                                 Oluşturan Yazar
                             </th>
-                          
+                            @*<th style="width: 10%">
+                                Durum
+                            </th>*@
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -78,7 +82,21 @@
                                 color = "badge badge-secondary";
                             }
 
-                            
+                            if (item.HeadingStatus == true)
+                            {
+                                status = "Aktif";
+                                headingColor = "text-success";
+
+
+
+                            }
+                            else if (item.HeadingStatus == false)
+                            {
+                                status = "Pasif";
+                                headingColor = "text-danger";
+
+
+                            }
 
                             <tr>
                                 <td>
@@ -103,7 +121,10 @@
                                         </li>
                                     </ul>
                                 </td>
-                              
+                                @*<td>
+                                    <span class="@headingColor">@status</span>
+
+                                </td>*@
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
@@ -118,10 +139,10 @@
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm " href="/WriterPanel/DeleteHeading/@item.HeadingID">
+                                    <a class="btn btn-success btn-sm  @(item.HeadingStatus==true? "btn-danger":"btn-success")" href="/WriterPanel/DeleteHeading/@item.HeadingID">
                                         <i class="fas fa-trash">
                                         </i>
-                                        Sil 
+                                        @(item.HeadingStatus==true? "Pasif Yap" : "Aktif Yap")
                                     </a>
                                 </td>
                             </tr>
@@ -136,6 +157,9 @@
     </section>
 </body>
 </html>
-<a href="/WriterPanel/NewHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>
+<a href="/Heading/AddHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>
+
+
+
 
 
