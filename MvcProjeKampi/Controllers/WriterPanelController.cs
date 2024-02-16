@@ -16,6 +16,7 @@ namespace MvcProjeKampi.Controllers
         // GET: WriterPanel
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+     
 
         public ActionResult WriterProfile()
         {
@@ -24,8 +25,8 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult MyHeadings()
         {
-            //id = 4;
-            var values = hm.GetListByWriter();
+            int id = 4;
+            var values = hm.GetListByWriter(id);
             return View(values);
         }
         [HttpGet]
