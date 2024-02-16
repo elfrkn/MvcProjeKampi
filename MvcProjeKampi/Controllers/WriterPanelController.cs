@@ -1,13 +1,14 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
-using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using Context = DataAccessLayer.Concrete.Context;
 
 namespace MvcProjeKampi.Controllers
 {
@@ -16,17 +17,18 @@ namespace MvcProjeKampi.Controllers
         // GET: WriterPanel
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
-     
+        Context c = new Context();
 
         public ActionResult WriterProfile()
         {
             return View();
         }
 
-        public ActionResult MyHeadings()
+        public ActionResult MyHeadings(string p)
         {
-            int id = 4;
-            var values = hm.GetListByWriter(id);
+            p = (string)Session["WriterMail"];
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var values = hm.GetListByWriter(writeridinfo);
             return View(values);
         }
         [HttpGet]
@@ -46,6 +48,8 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading p)
         {
+            string m = (string)Session["WriterMail"];
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == m).Select(y => y.WriterID).FirstOrDefault();
             p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.WriterID = 4;
             p.HeadingStatus = true;
@@ -83,6 +87,11 @@ namespace MvcProjeKampi.Controllers
            // headingvalues.HeadingStatus = false;
             hm.HeadingDelete(headingvalues);
             return RedirectToAction("MyHeadings");
+        }
+        public ActionResult AllHeading()
+        {
+            var headings = hm.GetList();
+            return View(headings);
         }
 
     }
