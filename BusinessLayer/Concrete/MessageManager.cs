@@ -30,14 +30,14 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.IsDraft == true);
         }
 
-        public List<Message> GetListInbox ()
+        public List<Message> GetListInbox (string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == "gizem@hotmail.com" && x.IsDraft == false);
+            return _messageDal.List(x => x.ReceiverMail == p );
         }
 
-        public List<Message> GetListSendbox()
+        public List<Message> GetListSendbox(string p)
         {
-            return _messageDal.List(x => x.SenderMail == "gizem@hotmail.com" && x.IsDraft == false);
+            return _messageDal.List(x => x.SenderMail == p );
         }
 
 
