@@ -32,6 +32,6 @@ Bu proje Ekşi Sözlük benzeri bir uygulamadır.Kullanıcılar başlık oluştu
 ![BAŞLIKLAR](https://github.com/elfrkn/MvcProjeKampi/assets/101409313/8e7f4c79-ae7c-4940-bc2a-f7a7b30ffe62)
 ![PROFİL](https://github.com/elfrkn/MvcProjeKampi/assets/101409313/2ada2393-f8f8-4d0d-bb54-ac0872e10e90)
 ![MESAJLAR](https://github.com/elfrkn/MvcProjeKampi/assets/101409313/77ab5c53-9fce-4b75-a2e4-3a2330c5e184)
-![KATEGORİ](https://github.com/elfrkn/MvcProjeKampi/assets/101409313/1c80819a-7415-4488-b528-2d3ac5f51354)
+
 
 
